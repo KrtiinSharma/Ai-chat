@@ -14,7 +14,9 @@ function App() {
     setAnswer("Loading your answer... \n It might take upto 10 seconds");
     try {
       const response = await axios({
-        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyA0cZ9owLAsArKH1n4E2jli2lKp62BTdm4",
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${
+          import.meta.env.VITE_API_GENERATIVE_LANGUAGE_CLIENT
+        }`,
         method: "post",
         data: {
           contents: [{ parts: [{ text: question }] }],
